@@ -30,7 +30,7 @@ enum GCodeFlavor : unsigned char {
 };
 
 enum PrintHostType {
-    htOctoPrint, htDuet
+    htOctoPrint, htDuet, htFlashAir
 };
 
 enum InfillPattern {
@@ -102,6 +102,7 @@ template<> inline const t_config_enum_values& ConfigOptionEnum<PrintHostType>::g
     if (keys_map.empty()) {
         keys_map["octoprint"]       = htOctoPrint;
         keys_map["duet"]            = htDuet;
+        keys_map["flashair"]        = htFlashAir;
     }
     return keys_map;
 }
@@ -1125,6 +1126,10 @@ class SLAMaterialConfig : public StaticPrintConfig
     STATIC_PRINT_CONFIG_CACHE(SLAMaterialConfig)
 public:
     ConfigOptionFloat                       initial_layer_height;
+    ConfigOptionFloat                       bottle_cost;
+    ConfigOptionFloat                       bottle_volume;
+    ConfigOptionFloat                       bottle_weight;
+    ConfigOptionFloat                       material_density;
     ConfigOptionFloat                       exposure_time;
     ConfigOptionFloat                       initial_exposure_time;
     ConfigOptionFloats                      material_correction;
@@ -1132,6 +1137,10 @@ protected:
     void initialize(StaticCacheBase &cache, const char *base_ptr)
     {
         OPT_PTR(initial_layer_height);
+        OPT_PTR(bottle_cost);
+        OPT_PTR(bottle_volume);
+        OPT_PTR(bottle_weight);
+        OPT_PTR(material_density);
         OPT_PTR(exposure_time);
         OPT_PTR(initial_exposure_time);
         OPT_PTR(material_correction);

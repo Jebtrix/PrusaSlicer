@@ -22,6 +22,8 @@ add_library(libslic3r STATIC
     Config.hpp
     EdgeGrid.cpp
     EdgeGrid.hpp
+    ElephantFootCompensation.cpp
+    ElephantFootCompensation.hpp
     ExPolygon.cpp
     ExPolygon.hpp
     ExPolygonCollection.cpp
@@ -71,6 +73,8 @@ add_library(libslic3r STATIC
     Format/STL.hpp
     GCode/Analyzer.cpp
     GCode/Analyzer.hpp
+    GCode/ThumbnailData.cpp
+    GCode/ThumbnailData.hpp
     GCode/CoolingBuffer.cpp
     GCode/CoolingBuffer.hpp
     GCode/PostProcessor.cpp
